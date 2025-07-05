@@ -42,9 +42,7 @@ const Home2 = () => {
     // Animation sequence 
     gsap.set("#topIn h2", { opacity: 0, x: -600, })
 
-
-
-    const tl1 = gsap.timeline()
+ const tl1 = gsap.timeline()
       .to("#topAnim", { duration: 1, right: '40%', delay: 1, ease: Power2.easeInOut }) // Move to center 
       .to("#topAnim", { duration: 1, height: '100vh', ease: Power2.easeInOut }) // Expand height to full screen 
       .to("#topAnim", { duration: 1, width: '100vw', right: 0, ease: Power2.easeInOut })
@@ -56,20 +54,20 @@ const Home2 = () => {
     const visibleWidth = document.querySelector('.w-full').clientWidth;
 
     const imgTl = gsap.timeline({ repeat: -1, repeatDelay: 1 });
-    imgTl.to(imgContainerRef.current, { x: -(imgContainerWidth - visibleWidth), duration: 20, ease:"linear" });
+    imgTl.to(imgContainerRef.current, { x: -(imgContainerWidth - visibleWidth), duration: 20, ease: "linear" });
 
-    const byocTl = gsap.timeline({ repeat: -1 });
-    byocTl.to("#byoc", {
-      x: "-140%", duration: 12, ease: "linear",
-      onRepeat: () => gsap.set("#byoc", { x: "100%" })
-    });
-
+    // const byocTl = gsap.timeline({ repeat: -1 });
+    // byocTl.to("#byoc", {
+    //   x: "-140%", duration: 12, ease: "linear",
+    //   onRepeat: () => gsap.set("#byoc", { x: "100%" })
+    // });
+    
 
 
     return () => {
       tl1.kill();
       imgTl.kill();
-      byocTl.kill();
+      // byocTl.kill();
     };
 
 
